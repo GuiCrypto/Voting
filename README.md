@@ -112,6 +112,7 @@ The election winner is given at last step : `VotesTallied` and everybody can acc
 To be the winner a proposal must respect this rules : 
 * the winning proposal is the one with the most votes
 * if equality between the proposals with the most votes this function return zero. 
+* blank vote is counted in participation but have no impact on proposal vote count.
 
 Then if the return of `getWinner` function is 0 a new vote must be taken to decide the winners.
 
