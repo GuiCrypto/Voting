@@ -54,7 +54,8 @@ contract Voting is Ownable {
     event Voted (address voter, uint proposalId);
 
     constructor() {
-        voteStatus = WorkflowStatus.RegisteringVoters; // Initialize voteStatus to RegisteringVoters (voteStatus index 0).
+        voteStatus = WorkflowStatus.RegisteringVoters;     // Initialize voteStatus to RegisteringVoters (voteStatus index 0).
+        proposals[proposalId] = Proposal("Blank vote", 0); // Initialize proposals with blank vote 
     }
 
     /**
