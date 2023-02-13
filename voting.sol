@@ -133,7 +133,7 @@ contract Voting is Ownable {
      * @dev Verifiy if the initiator (msg.sender) of the function is a Voter.
      */  
     function _checkVoter()  internal view virtual {
-        require(voters[msg.sender].isRegistered, "only registered voter can summit proposal.");
+        require(voters[msg.sender].isRegistered, "only registered voter can make this action.");
 
     }
 
@@ -141,7 +141,7 @@ contract Voting is Ownable {
      * @dev Verifiy if the initiator  (msg.sender) of the function has already voted.
      */  
     function _checkAlreadyVote() internal view virtual {
-        require(voters[msg.sender].hasVoted == false, "you have already voted");
+        require(voters[msg.sender].hasVoted == false, "you have already voted.");
     }
 
     /**
@@ -155,14 +155,14 @@ contract Voting is Ownable {
      * @dev Verifiy if voteStatus enum is superior than required _voteStatusValue.
      */  
     function _checkVoteStatusSuperiorThan(uint _voteStatusValue) internal view virtual {
-        require(uint(voteStatus) > _voteStatusValue, string.concat("the voteStatus is actualy to ", Strings.toString(uint(voteStatus)), " this action is possible only for a vote status superior than ", Strings.toString(_voteStatusValue)));
+        require(uint(voteStatus) > _voteStatusValue, string.concat("the voteStatus is currently to ", Strings.toString(uint(voteStatus)), " this action is possible only for a vote status superior than ", Strings.toString(_voteStatusValue)));
     }
 
     /**
      * @dev Verifiy if voteStatus enum is equal than required _voteStatusValue.
      */
     function  _checkVoteStatusEqualTo(uint _voteStatusValue) internal view virtual {      
-        require(uint(voteStatus) == _voteStatusValue, string.concat("the voteStatus is actualy to ", Strings.toString(uint(voteStatus)), " this action is possible only for a vote status equal to ", Strings.toString(_voteStatusValue)));
+        require(uint(voteStatus) == _voteStatusValue, string.concat("the voteStatus is currently to ", Strings.toString(uint(voteStatus)), " this action is possible only for a vote status equal to ", Strings.toString(_voteStatusValue)));
     }
 
     /**
