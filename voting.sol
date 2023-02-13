@@ -185,10 +185,8 @@ contract Voting is Ownable {
     /**
      * @dev return the voteStatus index.
      *
-     * Restriction(s) : 
-     *  - only accessible to Owner and Voter.
      */
-    function getVoteStatus() external view onlyOwnerOrVoter returns(WorkflowStatus) {
+    function getVoteStatus() external view returns(WorkflowStatus) {
         return voteStatus;
     }
 
@@ -255,10 +253,9 @@ contract Voting is Ownable {
      * @dev returns the list of voters. 
      *
      * Restriction(s) : 
-     * - only accessible to Owner or Voter 
      * - only executed when voteStatus is superior than 0.
      */
-    function getVotersArray() external view onlyOwnerOrVoter voteStatusSuperiorThan(0) returns(address[] memory) {
+    function getVotersArray() external view voteStatusSuperiorThan(0) returns(address[] memory) {
         return votersArray;
     }
 
@@ -279,10 +276,9 @@ contract Voting is Ownable {
      * @dev returns the proposal description that refere to required _proposalId.
      *
      * Restriction(s) : 
-     * - only accessible to Voter 
      * - only executed when voteStatus is superior than 0.
      */
-    function getProposalDescription(uint _proposalId) public view onlyVoter voteStatusSuperiorThan(0) returns(string memory) {
+    function getProposalDescription(uint _proposalId) public view voteStatusSuperiorThan(0) returns(string memory) {
         _checkProposalId(_proposalId);
         return proposals[_proposalId].description;
     }
@@ -291,10 +287,9 @@ contract Voting is Ownable {
      * @dev returns the number of proposals.
      *
      * Restriction(s) : 
-     * - only accessible to Owner or Voter 
      * - only executed when voteStatus is superior than 0.
      */
-    function howManyProposals() external view onlyOwnerOrVoter voteStatusSuperiorThan(0) returns(uint) {
+    function howManyProposals() external view voteStatusSuperiorThan(0) returns(uint) {
         return proposalId;
     }
 
@@ -308,7 +303,6 @@ contract Voting is Ownable {
      * - the nbVoting variable is incremented by 1.
      * 
      * Restriction(s) : 
-     * - only accessible to Voter 
      * - only executed when voteStatus is equal to 3.
      */
     function vote(uint _proposalId) external onlyVoter voteValidator(_proposalId) voteStatusEqualTo(3) {
@@ -384,6 +378,17 @@ contract Voting is Ownable {
             }
         }
         return maxVoteProposalId;
+    }
+
+    /**
+     * @dev Return the vote count of a proposal
+     *
+     * Restriction(s) : 
+     * - only executed when voteStatus is equal to 5.
+     */
+    function howManyVoteForProposal(uint _proposalId) external view voteStatusEqualTo(5) returns(uint)  {
+        _checkProposalId(_proposalId);
+        return proposals[_proposalId].voteCount;
     }
 
     /**
