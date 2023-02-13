@@ -84,25 +84,25 @@ Everybody can access the following variables and functions:
 ## table of functions and access restrictions
 
      
-| function name            | role associed  | vote status step                                   |
-|--------------------------|----------------|----------------------------------------------------|
-| `addProposal`            | Voter          | ProposalsRegistrationStarted (index : 1)           |
-| `addVoter`               | Owner          | RegisteringVoters (index : 0)                      |
-| `addVoters`              | Owner          | RegisteringVoters (index : 0)                      |
-| `NextVoteStatus`         | Owner          | no restriction                                     |
-| `removeVoter`            | Owner          | RegisteringVoters (index : 0)                      |
-| `renounceOwnership`      | Owner          | no restriction                                     |
-| `transfertOwner`         | Owner          | no restriction                                     |
-| `vote`                   | Voter          | VotingSessionStarted (index : 3)                   |
-| `didIVote`               | Voter          | **after** ProposalsRegistrationEnded (index : > 2) |
-| `getProposalDescription` | no restriction | **after** RegisteringVoters (index : > 0)          |
-| `getVotersArray`         | no restriction | **after** RegisteringVoters (index : > 0)          |
-| `getWinner`              | no restriction | VotesTallied (index : 5)                           |
-| `howManyProposals`       | no restriction | **after** RegisteringVoters (index : > 0)          |
-| `howManyVoteForProposal` | no restriction | VotesTallied (index : 5)                           |
-| `voteParticipation`      | no restriction | **after** ProposalsRegistrationEnded (index : > 2) |
-| `whichProposalDidIVote`  | Voter          | **after** ProposalsRegistrationEnded (index : > 2) |
-| `whoVoteForProposalId`   | Voter          | VotesTallied (index : 5)                           |
+| function name            | associated role(s)  | vote status step                                   |
+|--------------------------|---------------------|----------------------------------------------------|
+| `addProposal`            | Voter               | ProposalsRegistrationStarted (index : 1)           |
+| `addVoter`               | Owner               | RegisteringVoters (index : 0)                      |
+| `addVoters`              | Owner               | RegisteringVoters (index : 0)                      |
+| `NextVoteStatus`         | Owner               | no restriction                                     |
+| `removeVoter`            | Owner               | RegisteringVoters (index : 0)                      |
+| `renounceOwnership`      | Owner               | no restriction                                     |
+| `transfertOwner`         | Owner               | no restriction                                     |
+| `vote`                   | Voter               | VotingSessionStarted (index : 3)                   |
+| `didIVote`               | Voter               | **after** ProposalsRegistrationEnded (index : > 2) |
+| `getProposalDescription` | no restriction      | **after** RegisteringVoters (index : > 0)          |
+| `getVotersArray`         | no restriction      | **after** RegisteringVoters (index : > 0)          |
+| `getWinner`              | no restriction      | VotesTallied (index : 5)                           |
+| `howManyProposals`       | no restriction      | **after** RegisteringVoters (index : > 0)          |
+| `howManyVoteForProposal` | no restriction      | VotesTallied (index : 5)                           |
+| `voteParticipation`      | no restriction      | **after** ProposalsRegistrationEnded (index : > 2) |
+| `whichProposalDidIVote`  | Voter               | **after** ProposalsRegistrationEnded (index : > 2) |
+| `whoVoteForProposalId`   | Owner or Voter      | VotesTallied (index : 5)                           |
 
 
 ## Results
