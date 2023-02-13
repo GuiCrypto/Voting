@@ -147,7 +147,7 @@ contract Voting is Ownable {
      * @dev Verifiy if the initiator (msg.sender) of the function has already voted.
      */  
     function _checkProposalId(uint _proposalId) internal view virtual {
-        require(_proposalId > 0 && _proposalId < proposalId+1, string.concat("the identifier of Proposal does not exist. Please indicate a value between 1 and ", Strings.toString(proposalId)));
+        require(_proposalId < proposalId+1, string.concat("the identifier of Proposal does not exist. Please indicate a value between 1 and ", Strings.toString(proposalId)));
     }
 
     /**

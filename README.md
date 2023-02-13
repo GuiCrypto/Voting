@@ -62,6 +62,8 @@ The functions that are reserved for him are :
 * `didIVote` : returns a boolean to remember if the `Voter` voted or not.
 * `whichProposalDidIVote` : returns the proposalId for which the `Voter` voted.
 
+> *Blank vote* is allowed. To do that `Voter` must vote for proposalId :  0.
+
 ### external users
 
 For reasons of transparency, external users can access certain functions of the smart contract. Essentially to ensure the sincerity of the vote while maintaining privacy.
